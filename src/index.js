@@ -1,49 +1,17 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import LocationPicker from "react-location-picker";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './componentes/App';
+import reportWebVitals from './reportWebVitals';
 
-/* Default position */
-const defaultPosition = {
-  lat: 27.9878,
-  lng: 86.925
-};
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-class LocationPickerExample extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      address: "Kala Pattar Ascent Trail, Khumjung 56000, Nepal",
-      position: {
-        lat: 0,
-        lng: 0
-      }
-    };
-
-    // Bind
-    this.handleLocationChange = this.handleLocationChange.bind(this);
-  }
-
-  handleLocationChange({ position, address }) {
-    // Set new location
-    this.setState({ position, address });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>{this.state.address}</h1>
-        <div>
-          <LocationPicker
-            containerElement={<div style={{ height: "100%" }} />}
-            mapElement={<div style={{ height: "400px" }} />}
-            defaultPosition={defaultPosition}
-            onChange={this.handleLocationChange}
-          />
-        </div>
-      </div>
-    );
-  }
-}
-const rootElement = document.getElementById("root");
-ReactDOM.render(<LocationPickerExample />, rootElement);
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
