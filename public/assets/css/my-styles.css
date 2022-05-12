@@ -1,0 +1,40 @@
+:root {
+  --bs-body-bg: #F9F8F8;
+  --primario1: #0C3687;
+  --primario2: #2BC65F;
+  --bs-font-sans-serif: "Roboto";
+  --footer: #061b43;
+}
+
+.clean-navbar {
+  background-color: var(--bs-body-bg) !important;
+}
+
+.nav-item-icon {
+  padding-right: 0;
+}
+
+.icon-act {
+  color: var(--primario2);
+}
+
+.icon-desact {
+  color: var(--primario1);
+}
+
+.reportar-heading {
+  padding-left: 40px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: var(--primario1);
+  border-color: var(--primario1);
+}
+
+.direccion {
+  margin-bottom: 1rem;
+  color: var(--bs-secondary);
+  font-size: small;
+}
+
