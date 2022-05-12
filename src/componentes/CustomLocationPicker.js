@@ -1,4 +1,3 @@
-// Así estaba en el index
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import LocationPicker from "react-location-picker";
@@ -9,7 +8,7 @@ const defaultPosition = {
   lng: 86.925
 };
 
-class LocationPickerExample extends Component {
+class CustomLocationPicker extends Component {
   constructor(props) {
     super(props);
 
@@ -46,5 +45,6 @@ class LocationPickerExample extends Component {
     );
   }
 }
-const rootElement = document.getElementById("root");
-ReactDOM.render(<LocationPickerExample />, rootElement);
+
+
+export default CustomLocationPicker;
