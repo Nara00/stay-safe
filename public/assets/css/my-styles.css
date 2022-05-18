@@ -70,7 +70,12 @@ form {
 }
 
 .nav-link {
-  font-size: 1.1rem !important;
+  font-size: 1.3rem !important;
+}
+
+.nav-item-icon {
+  padding: 0rem 3rem !important;
+  margin: 0.5rem 0rem;
 }
 
 
