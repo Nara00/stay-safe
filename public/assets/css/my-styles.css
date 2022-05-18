@@ -22,10 +22,6 @@
   color: var(--primario1);
 }
 
-.reportar-heading {
-  padding-left: 40px;
-}
-
 .btn-primary {
   color: #fff;
   background-color: var(--primario1);
@@ -37,4 +33,44 @@
   color: var(--bs-secondary);
   font-size: small;
 }
+
+.nav-link-icon {
+  display: block;
+  padding: 0;
+  color: #0d6efd;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  font-size: 10rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--primario1);
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .nav-link.active {
+  color: var(--primario2);
+}
+
+.nav-link:hover, .icon-act:hover, .icon-desact:hover {
+  color: var(--footer) !important;
+}
+
+.reportar-heading, .user-info {
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+#logo {
+  margin-left: 13px;
+}
+
+form {
+  max-width: 800px !important;
+}
+
+.nav-link {
+  font-size: 1.1rem !important;
+}
+
 

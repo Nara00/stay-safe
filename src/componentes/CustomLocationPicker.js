@@ -4,8 +4,8 @@ import LocationPicker from "react-location-picker";
 
 /* Default position */
 const defaultPosition = {
-  lat: 27.9878,
-  lng: 86.925
+  lat: -31.417,
+  lng: -64.183
 };
 
 class CustomLocationPicker extends Component {
@@ -13,7 +13,7 @@ class CustomLocationPicker extends Component {
     super(props);
 
     this.state = {
-      address: "Kala Pattar Ascent Trail, Khumjung 56000, Nepal",
+      address: "Buenos Aires 30, X5022AAA Córdoba, Argentina",
       position: {
         lat: 0,
         lng: 0
@@ -32,15 +32,17 @@ class CustomLocationPicker extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.address}</h1>
         <div>
           <LocationPicker
             containerElement={<div style={{ height: "100%" }} />}
             mapElement={<div style={{ height: "400px" }} />}
             defaultPosition={defaultPosition}
             onChange={this.handleLocationChange}
+            zoom={13}
+            radius={30}
           />
         </div>
+        <p class="direccion">{this.state.address}</p>
       </div>
     );
   }
