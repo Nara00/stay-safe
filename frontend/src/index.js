@@ -5,6 +5,7 @@ import App from './componentes/App';
 import reportWebVitals from './reportWebVitals';
 import { LocationContextProvider } from './context/Location';
 
+
 ReactDOM.render(
   // <React.StrictMode>
   <LocationContextProvider>

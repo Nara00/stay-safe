@@ -37,6 +37,9 @@ const CustomLocationPicker = () => {
       </div>
       <p class="direccion">{address}</p>
     </div>
+
+
+
   );
 }
 
