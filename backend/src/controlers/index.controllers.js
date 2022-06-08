@@ -23,7 +23,7 @@ const getCrimes = async (req, res) => {
     const resposne = await pool.query("select * from crimes");
     res.send(resposne.rows);
 }
-const getCrimesLatLng = async (req, res) => {
+const getCrimesLoc = async (req, res) => {
     const resposne = await pool.query("select latitude as lat,longitude as lng from crimes");
     res.send(resposne.rows);
 }
@@ -46,5 +46,5 @@ module.exports = {
     getUsers,
     getCrimes,
     post_event,
-    getCrimesLatLng
+    getCrimesLoc
 }

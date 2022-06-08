@@ -36,7 +36,7 @@ const UseReportes = () => {
                 console.log("entra al fetch de post")
                 console.log(evento)
                 const response = await fetch(
-                    "http://localhost:3001/post",
+                    "https://stay-safe-app-ucc.herokuapp.com/post",
                     {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
