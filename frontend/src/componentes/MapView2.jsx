@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Map, GoogleApiWrapper, Marker, HeatMap } from "google-maps-react";
+import { Map, GoogleApiWrapper, Marker, HeatMap, fitBounds } from "google-maps-react";
 import "./map.css"
 import Hook from "./Hook"
 
@@ -25,12 +25,33 @@ const gradient = [
     "rgba(255, 0, 0, 1)"
 ];
 
+const NEW_ZEALAND_BOUNDS = {
+    lat: -34.36,
+    lng: -47.35,
+    lat: 166.28,
+    lng: -175.81,
+};
+
+const AUCKLAND = { lat: -37.06, lng: 174.58 };
 
 class MapView2 extends React.Component {
 
-    state = {
-        location: []
-    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            location: [],
+            bounds: null
+        }
+
+        this.handleMapLoad = this.handleMapLoad.bind(this)
+    };
+
+    // state = {
+    //     location: [],
+    //     bounds: null,
+
+    // }
+
 
     componentWillMount() {
         this.fetchBooks();
@@ -43,6 +64,19 @@ class MapView2 extends React.Component {
         this.setState({ location: data });
     }
 
+    handleMapLoad = () => {
+
+        // var bounds = new this.props.google.maps.LatLngBounds(
+        //     new this.props.google.maps.LatLng(55.38942944437183, -2.7379201682812226),
+        //     new this.props.google.maps.LatLng(54.69726685890506, -1.2456105979687226)
+        // );
+        const bounds = new this.props.google.maps.LatLngBounds();
+        console.log(bounds)
+        // bounds.extend(NEW_ZEALAND_BOUNDS);
+        var myLatLang = new this.props.google.maps.LatLng(54.69726685890506, -2.7379201682812226);
+        bounds.extend(myLatLang);
+        this.setState({ bounds: bounds });
+    }
 
 
     render() {
@@ -53,9 +87,14 @@ class MapView2 extends React.Component {
                         google={this.props.google}
                         zoom={8}
                         style={mapStyles}
-                        initialCenter={{ lat: -31.417, lng: -64.183 }}
-                        onReady={this.handleMapReady}
+                        // {{ lat: -31.417, lng: -64.183 }}
+                        initialCenter={AUCKLAND}
+                        onClick={this.handleMapLoad}
                         positions={this.state.location}
+                        // restriction={true}
+                        // latLngBounds={NEW_ZEALAND_BOUNDS}
+                        // strictBounds={false}
+                        bounds={this.state.bounds}
                     >
                         {/* {this.displayMarkers()} */}
                         <HeatMap
