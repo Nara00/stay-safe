@@ -27,8 +27,26 @@ function LineChart({ chartData }) {
       ],
       borderWidth: 1
     }]
+    
   };
-  return <Line data={dataClean} />;
+
+  var options = {
+    resposive: true,
+    maintainAspectRatio: false,
+
+    pointRadius: 10,
+    pointStyle: 'crossRot',
+    tension:0.2,
+    scales: {
+    },
+    legend: {
+      labels: {
+        fontSize: 25,
+      },
+    },
+  }
+
+  return <Line data={dataClean} options={options}/>;
 }
 
 export default LineChart;

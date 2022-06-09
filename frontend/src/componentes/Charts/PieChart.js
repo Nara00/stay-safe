@@ -4,12 +4,11 @@ import { Chart as ChartJS } from "chart.js/auto";
 
 function PieChart({ chartData }) {
 
-
   var data = {
-    labels: chartData.map((data)=>data.crime_type),
+    labels: chartData.map((data) => data.crime_type),
     datasets: [{
       label: `Crimenes por tipo`,
-      data: chartData.map((data)=>data.count),
+      data: chartData.map((data) => data.count),
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -30,7 +29,18 @@ function PieChart({ chartData }) {
     }]
   };
 
-  return <Pie data={data} />;
+  var options = {
+    maintainAspectRatio: false,
+    scales: {
+    },
+    legend: {
+      labels: {
+        fontSize: 25,
+      },
+    },
+  }
+
+  return <Pie data={data} options={options} />;
 }
 
 export default PieChart;

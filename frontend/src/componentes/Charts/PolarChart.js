@@ -29,7 +29,18 @@ function PolarChart({ chartData }) {
         }]
       };
 
-    return <PolarArea data={dataClean} />;
+      var options = {
+        maintainAspectRatio: false,
+        scales: {
+        },
+        legend: {
+          labels: {
+            fontSize: 25,
+          },
+        },
+      }
+
+    return <PolarArea data={dataClean} options={options} />;
   }
   
   export default PolarChart;
