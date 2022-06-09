@@ -3,6 +3,14 @@
     padding: 0;
     font-family: sans-serif;
   }
+  .dash{
+    font-size: 1.3rem !important;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: var(--primario1);
+    margin-bottom: 15px;
+
+  }
   .chartMenu {
     width: 100vw;
     height: 400px;
@@ -14,9 +22,9 @@
     font-size: 20px;
   }
   .chartCard {
-    background: rgb(255, 255, 255);
+    background: #F6F6F6;
     padding: 10px;
-    margin: 10px;
+    margin: 30px;
     justify-content: center;
   }
   .chartBox {
