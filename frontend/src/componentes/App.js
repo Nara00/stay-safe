@@ -8,7 +8,7 @@ import Login from './Login';
 // import Map from './Map';
 import Profile from './Profile';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hook from "./Hook"
+import Dashboard from './dashboard'
 import { LocationContext } from "../context/Location";
 
 
@@ -25,6 +25,7 @@ function App() {
         <Route path="/reportar" element={<Reportes />} />
         <Route path="/login" element={<Login />} />
         <Route path="/perfil" element={<Profile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
 
