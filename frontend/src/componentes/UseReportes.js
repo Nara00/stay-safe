@@ -22,8 +22,8 @@ const UseReportes = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         evento.userid = 1
-        evento.latitude = position.lat
-        evento.longitude = position.lng
+        evento.latitude = position.lat()
+        evento.longitude = position.lng()
         evento.address = address
 
         setFirst(true);

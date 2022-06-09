@@ -15,7 +15,7 @@ export const LocationContextProvider = (props) => {
 
     useEffect(() => {
         const loadLocation = async () => {
-            const response = await fetch("http://localhost:3001/crimesL");
+            const response = await fetch("https://stay-safe-app-ucc.herokuapp.com/crimes");
             const data = await response.json();
             // console.log(data)
             setLoadLocation(data);

@@ -1,7 +1,8 @@
 import React from 'react';
-import CustomLocationPicker from './CustomLocationPicker';
+import LPL from './LocationPickerLimited';
 import UseReportes from './UseReportes';
 import ReactTooltip from "react-tooltip";
+import DraggableMarkerTest from "./DraggableMarkerTest";
 
 const Reportes = () => {
     const { handleChange, evento, handleSubmit, errors } = UseReportes();
@@ -57,6 +58,7 @@ const Reportes = () => {
                                 <option value={"acoso"} onChange={handleChange}>Acoso</option>
                                 <option value={"agresion-verbal"} onChange={handleChange}>Agresión verbal</option>
                                 <option value={"agresion-fisica"} onChange={handleChange}>Agresión física</option>
+                                <option value={"otro"} onChange={handleChange}>Otro...</option>
                             </select>
                             {errors.typered && (
                                 <div style={{ color: "red" }}>
@@ -66,8 +68,8 @@ const Reportes = () => {
 
                         </div>
                         <div class="mb-3"><label class="form-label" for="email">Ubicación</label>
-                            <p>¿En qué lugar (aproximado) ocurrió?</p>
-                            <CustomLocationPicker />
+                            <p>¿En qué lugar de Nueva Córdoba ocurrió?</p>
+                            <DraggableMarkerTest/>
                         </div>
                         <div class="mb-3"><label class="form-label" for="message">Descripción</label>
                             <textarea
