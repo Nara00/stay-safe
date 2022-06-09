@@ -18,6 +18,7 @@ const DraggableMarkerTest = compose(
     }),
     lifecycle({
         componentWillMount() {
+            
             const refs = {}
 
             this.setState({
@@ -27,10 +28,31 @@ const DraggableMarkerTest = compose(
                 },
 
                 onPositionChanged: () => {
-                    const position = refs.marker.getPosition();
-                    console.log(position.toString());
-                    // setPosition(position)
-                }
+                    const pos = refs.marker.getPosition();
+                    console.log(pos);
+                    // const { position, setPosition } = useContext(LocationContext);
+                    // position = pos
+                    // setPosition(pos)
+                },
+
+                getP: () => {
+                    const pos = refs.marker.getPosition();
+                    return(pos);
+                    // const { position, setPosition } = useContext(LocationContext);
+                    // position = pos
+                    // setPosition(pos)
+                },
+                // onMarkerDragEnd: () => {
+                //     const pos = refs.marker.getPosition();
+                //     console.log("dragend", pos.toString());
+                // },
+                // handleLocationChange: () => {
+                //     const pos = refs.marker.getPosition();
+                //     // Set new location
+                //     console.log(pos)
+                //     setPosition(pos)
+                //   }
+
             })
         },
     }),
@@ -38,7 +60,20 @@ const DraggableMarkerTest = compose(
     withGoogleMap
 )((props) =>{
 
+    const { position, setPosition, address, setAddress } = useContext(LocationContext);
+
+
+  const handleLocationChange = () => {
+    const pos = props.getP();
+    console.log(pos)
+    // Set new location
+    // console.log(position)
+    // console.log(address)
+    setPosition(props.getP())
+    // setAddress(address)
+  }
     
+
     return(
         
     <GoogleMap defaultCenter={{ lat: -31.417, lng: -64.183 }}
@@ -54,59 +89,9 @@ const DraggableMarkerTest = compose(
                 strictBounds: false,
             }
         }} >
-        {<Marker position={{ lat: -31.426111, lng: -64.185833 }} draggable={true} ref={props.onMarkerMounted} onPositionChanged={props.onPositionChanged} />}
+        {<Marker position={{ lat: -31.426111, lng: -64.185833 }} draggable={true} ref={props.onMarkerMounted} onPositionChanged={handleLocationChange} onMarkerDragEnd={props.onMarkerDragEnd}/>}
     </GoogleMap>)}
 )
 
-
-// const DraggableMarkerTest = () => {
-//     const google = window.google
-
-//     const handleLocationChange = () => {
-//         // Set new location
-//         console.log('hola')
-//       }
-
-//     // const loadMap = (map, maps) => {
-
-//     //     let marker = new maps.Marker({
-//             // position: { lat: -31.426111, lng: -64.185833 },
-//             // map,
-//             // draggable: true,
-//     //         onMarkerDragEnd: handleLocationChange(),
-//     //     });
-
-//     // };
-
-//     return (
-//         <div style={{ height: "400px", width: "100%" }}>
-//             <GoogleMapReact
-//                 bootstrapURLKeys={{ key: "AIzaSyA9dTOobVnPExbxhmi-GP4KMl3V_Oe2sD0" }}
-//                 defaultCenter={{ lat: -31.417, lng: -64.183 }}
-//                 defaultZoom={15}
-//                 options={{
-//                     restriction: {
-//                         latLngBounds: {
-//                             north: -31.418482,
-//                             south: -31.428427,
-//                             west: -64.191480,
-//                             east: -64.181438
-//                         },
-//                         strictBounds: false,
-//                     }
-//                 }}
-//                 yesIWantToUseGoogleMapApiInternals
-//                 // onGoogleApiLoaded={({ map, maps }) => loadMap(map, maps)}
-//             >
-//                 <Marker
-//                 position= {{ lat: -31.426111, lng: -64.185833 }}
-//                 draggable= {true}>
-
-//                 </Marker>
-//             </GoogleMapReact>
-//         </div>
-//     );
-
-// }
 
 export default DraggableMarkerTest;
