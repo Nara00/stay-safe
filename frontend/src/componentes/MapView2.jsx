@@ -5,6 +5,7 @@ import { GoogleApiWrapper, HeatMap } from "google-maps-react";
 import "./map.css"
 import Hook from "./Hook"
 import MapPicker from 'react-google-map-picker'
+import Dashboard from "./dashboard";
 
 
 const mapStyles = {
@@ -112,7 +113,7 @@ export class MapView2 extends React.Component {
         return (
             <>
                 {this.state.location.length !== 0 ? (
-                    <div style={{ height: '90vh', width: '100%' }}>
+                    <div style={{ height: '60vh', width: '100%' }}>
                         <GoogleMapReact
                             google={this.props.google}
                             // bootstrapURLKeys={{ key: "AIzaSyA9dTOobVnPExbxhmi-GP4KMl3V_Oe2sD0" }}
@@ -153,9 +154,11 @@ export class MapView2 extends React.Component {
 
                         </GoogleMapReact >
                     </div>
-                ) : null}
 
+                ) : null}
+                <Dashboard />
             </>
+
         );
     }
 }
