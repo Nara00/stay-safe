@@ -12,6 +12,7 @@ import Hook from "./Hook"
 import { LocationContext } from "../context/Location";
 
 
+
 function App() {
 
 
@@ -20,7 +21,7 @@ function App() {
     <Router>
       <CustomNavbar />
       <Routes>
-        <Route path="/" element={<Map center={{ lat: -31.417, lng: -64.183 }} zoom={14} />} />
+        <Route path="/" element={<Map center={{ lat: -31.426111, lng: -64.185833 }} zoom={14} />} />
         <Route path="/reportar" element={<Reportes />} />
         <Route path="/login" element={<Login />} />
         <Route path="/perfil" element={<Profile />} />
